@@ -22,7 +22,7 @@ public Statement connection() throws SQLException {
 		try {
 		    Class.forName( driver );
 		} catch ( ClassNotFoundException e ) {
-		    /* Gérer les éventuelles erreurs ici. */
+			e.printStackTrace();
 		}
 		
 		
@@ -50,8 +50,9 @@ public Statement connection() throws SQLException {
 
 
 	public double getLatitudeByCity(String city) throws SQLException {
+		String cityBDD = city;
 		ResultSet resultat = null;
-		resultat = connection().executeQuery("SELECT Latitude FROM ville_france WHERE Nom_commune = "+"'"+city+"'");
+		resultat = connection().executeQuery("SELECT Latitude FROM ville_france WHERE Nom_commune = "+"'"+cityBDD+"'");
 		double latitude=0;
 		while ( resultat.next() ) {
 			latitude = Double.parseDouble(resultat.getString( "Latitude" ));
@@ -60,8 +61,9 @@ public Statement connection() throws SQLException {
 	}
 	
 	public double getLongitudeByCity(String city) throws SQLException {
+		String cityBDD = city;
 		ResultSet resultat = null;
-		resultat = connection().executeQuery("SELECT Longitude FROM ville_france WHERE Nom_commune = "+"'"+city+"'");
+		resultat = connection().executeQuery("SELECT Longitude FROM ville_france WHERE Nom_commune = "+"'"+cityBDD+"'");
 		double latitude=0;
 		while ( resultat.next() ) {
 			latitude = Double.parseDouble(resultat.getString( "Longitude" ));

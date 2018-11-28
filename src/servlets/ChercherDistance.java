@@ -2,6 +2,8 @@ package servlets;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,6 +21,7 @@ import BDD.ConfigurationBDD;
 public class ChercherDistance extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String VUE_FORM = "/WEB-INF/chercherDistance.jsp";
+	private static final Logger LOGGER = Logger.getLogger( ChercherDistance.class.getName() );
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -55,6 +58,7 @@ public class ChercherDistance extends HttpServlet {
 			double distance = this.calculerDistance(latitudeDepart, longitudeDepart, latitudeArrivee, longitudeArrivee);
 			request.setAttribute("distance", distance);
 		} catch (SQLException e) {
+			LOGGER.log(Level.FINE, "bug: "+e);
 			e.printStackTrace();
 		}
 		this.doGet(request, response);

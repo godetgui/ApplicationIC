@@ -4,8 +4,14 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import servlets.ChercherDistance;
 
 public class ConfigurationBDD {
+	
+	private static final Logger LOGGER = Logger.getLogger( ChercherDistance.class.getName() );
 	
 	/* Connexion à la base de données */
 	String url = "jdbc:mysql://localhost/VillesFrance2?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
@@ -16,11 +22,15 @@ public class ConfigurationBDD {
     Statement statement = null;
     ResultSet resultat = null;
     
+    
 public Statement connection() throws SQLException {
+	
+	
 	
 		try {
 		    Class.forName( driver );
 		} catch ( ClassNotFoundException e ) {
+			LOGGER.log(Level.FINE, "bug: "+e);
 			e.printStackTrace();
 		}
 		

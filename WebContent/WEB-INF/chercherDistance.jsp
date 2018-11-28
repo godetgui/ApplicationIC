@@ -28,8 +28,6 @@
 	<br/>
 	<div result>
 		<label>Distance</label>
-<%-- 		<%double distance = (double) session.getAttribute("distance"); %> --%>
-<%-- 		<%=distance%> --%>
 		<%=request.getAttribute("distance")%> km
 	</div>
 

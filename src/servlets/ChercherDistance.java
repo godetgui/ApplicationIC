@@ -32,11 +32,7 @@ public class ChercherDistance extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//HttpSession session = request.getSession();
 		System.out.println(request.getAttribute("distance"));
-		
-		//session.getAttribute("distance");
 		request.getRequestDispatcher(VUE_FORM).forward(request, response);
 	}
 
@@ -44,12 +40,9 @@ public class ChercherDistance extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
 		
 		String villeDepart = request.getParameter("villeDepart");
 		String villeArrivee = request.getParameter("villeArrivee");
-		System.out.println(villeDepart);
-		System.out.println(villeArrivee);
 		
 		ConfigurationBDD configBDD = new ConfigurationBDD();
 		try {
@@ -57,19 +50,11 @@ public class ChercherDistance extends HttpServlet {
 			double longitudeDepart = configBDD.getLongitudeByCity(villeDepart);
 			double latitudeArrivee = configBDD.getLatitudeByCity(villeArrivee);
 			double longitudeArrivee = configBDD.getLongitudeByCity(villeArrivee);
-			System.out.println(latitudeDepart);
-			System.out.println(longitudeDepart);
-			System.out.println(latitudeArrivee);
-			System.out.println(longitudeArrivee);
 			
 			
 			double distance = this.calculerDistance(latitudeDepart, longitudeDepart, latitudeArrivee, longitudeArrivee);
-			System.out.println("distance");
-			System.out.println(distance);
-			//session.setAttribute("distance", distance);
 			request.setAttribute("distance", distance);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		this.doGet(request, response);

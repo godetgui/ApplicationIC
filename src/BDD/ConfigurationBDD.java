@@ -17,8 +17,7 @@ public class ConfigurationBDD {
     ResultSet resultat = null;
     
 public Statement connection() throws SQLException {
-		
-		/* Chargement du driver JDBC pour MySQL */
+	
 		try {
 		    Class.forName( driver );
 		} catch ( ClassNotFoundException e ) {
@@ -29,22 +28,7 @@ public Statement connection() throws SQLException {
 			
 		    connexion = DriverManager.getConnection( url, utilisateur, motDePasse );
 		    return statement = connexion.createStatement();
-//		    resultat = statement.executeQuery( "SELECT * FROM ville_france WHERE Code_commune_INSEE = 95014;" );
-//		    System.out.println("Résultat");
-//		    
-//		    while ( resultat.next() ) {
-//		        int codeCommune = resultat.getInt( "Code_commune_INSEE" );
-//		        String nomCommune = resultat.getString( "Nom_commune" );
-//		        String codePostal = resultat.getString( "code_postal" );
-//		        String LibelleAcheminement = resultat.getString( "Libelle_acheminement" );
-//		        String ligne5 = resultat.getString( "Ligne_5" );
-//		        String latitude = resultat.getString( "Latitude" );
-//		        String longitude = resultat.getString( "Longitude" );
-//		        
-//		        System.out.println(codeCommune+" "+nomCommune+" "+codePostal+" "+LibelleAcheminement+" "+ligne5+" "+latitude+" "+longitude);
-//
-//
-//		    }
+
 	
 	}
 

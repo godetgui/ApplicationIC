@@ -25,7 +25,7 @@ public class ChercherDistances extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ChercherDistances() {
+    public ChercherDistances() { 
         super();
         // TODO Auto-generated constructor stub
     }

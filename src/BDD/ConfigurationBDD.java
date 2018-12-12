@@ -7,11 +7,9 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import servlets.ChercherDistance;
-
 public class ConfigurationBDD {
 	
-	private static final Logger LOGGER = Logger.getLogger( ChercherDistance.class.getName() );
+	private static final Logger LOGGER = Logger.getLogger( ConfigurationBDD.class.getName() );
 	
 	/* Connexion à la base de données */
 	String url = "jdbc:mysql://localhost/VillesFrance2?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";

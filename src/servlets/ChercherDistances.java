@@ -10,23 +10,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import BDD.ConfigurationBDD;
 
 /**
- * Servlet implementation class ChercherDistance
+ * Servlet implementation class ChercherDistances
  */
-@WebServlet("/ChercherDistance")
-public class ChercherDistance extends HttpServlet {
+@WebServlet("/ChercherDistances")
+public class ChercherDistances extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String VUE_FORM = "/WEB-INF/chercherDistance.jsp";
-	private static final Logger LOGGER = Logger.getLogger( ChercherDistance.class.getName() );
+	private static final Logger LOGGER = Logger.getLogger( ChercherDistances.class.getName() );
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ChercherDistance() {
+    public ChercherDistances() {
         super();
         // TODO Auto-generated constructor stub
     }

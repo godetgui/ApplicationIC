@@ -9,4 +9,9 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <servlet-name>ChercherDistances</servlet-name>
+    <servlet-class>src.servlets.ChercherDistances</servlet-class>
+  </servlet>
+
 </web-app>
